@@ -1,18 +1,18 @@
-h1. Attribute Mapping
+# Attribute Mapping
 
 _Integrating systems means mostly connecting systems. Each systems has it's own data model. Some systems rely on common data storage (LDAP, SQL database, ...) but the structure in which information is stored, is mostly different. A [tool, software, process, ...] which allows to compare the data structure of each system would be a massive support._
 
-h2. Goal
+## Goal
 
-# Create an easy way to model data structures in a harmonised way (subset modelling).
-# Make it possible to compare data structures.
-# Show equality.
-# Show similarity.
-# Allow to create rules to join data attributes for one system.
-# Allow to create rules to split data attribute for one system.
-# Create a superset of all attribute definitions.
+* Create an easy way to model data structures in a harmonised way (subset modelling).
+* Make it possible to compare data structures.
+* Show equality.
+* Show similarity.
+* Allow to create rules to join data attributes for one system.
+* Allow to create rules to split data attribute for one system.
+* Create a superset of all attribute definitions.
 
-h2. Readings
+## Readings
 
 * https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol
 * https://www.ldap.com/understanding-ldap-schema
@@ -33,18 +33,18 @@ h2. Readings
 ** http://www.bind9.net/rfc-ldap
 * ...
 
-h2. Tasks
+## Tasks
 
-# Parse LDAP Schema 
-# load LDAP schema to [PostgresSQL,MongoDB]
-# show all
-# compare all
-# show equal
-# show similar 
-# search by name
-# search by description 
-# select Attributes (add to cart)
-# Show "cart"
-#* export all required Schemas as ldif (separate, combined)
-#* ...
-# ...
+* Parse LDAP Schema 
+* load LDAP schema to [PostgresSQL,MongoDB]
+* show all
+* compare all
+* show equal
+* show similar 
+* search by name
+* search by description 
+* select Attributes (add to cart)
+* Show "cart"
+* * export all required Schemas as ldif (separate, combined)
+* * ...
+* ...
