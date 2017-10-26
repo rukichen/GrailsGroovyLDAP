@@ -1,21 +1,6 @@
-# GrailsProblemsSolving
+# Welcome to the Grails, Groovy and LDAP wiki!
 
-## Installing GGTS
-Download GGTS  
+This site is made for people, who are working with GGTS (Grails and Groovy Tool Suite). Sometimes problems arise which are difficult to solve. The solution is often only found after searching for hours on the internet. I will provide the solutions I found for the problems I conquered while using GGTS. If links are not valid anymore, please leave a comment. 
 
-sudo apt-get install software-properties-common  
-sudo add-apt-repository ppa:webupd8team/java  
-sudo apt-get update  
-sudo apt-get install oracle-java8-installer  
-sudo apt-get install oracle-java8-set-default  
-
-$ curl -s "https://get.sdkman.io" | bash  
-$ source "$HOME/.sdkman/bin/sdkman-init.sh"  
-$ sdk install grails  
-
-After creating a new Project try "run as"  
--Lots of Errors appear  
-Download from  http://repo.spring.io/libs-snapshot-local/org/springframework/springloaded/ or newer  
-Move it into lib/org.springframework/springloaded/jars  
-remove oder move springloaded-1.2.x.RELEASE  
-rename springloaded-1.2.2.BUILD-SNAPSHOT.jar to springloaded-1.2.x.RELEASE  
+1. [Installing GGTS](Installing-GGTS)
+2. [Working with LDAP and groovy](Groovy-LDAP-Tutorial)
