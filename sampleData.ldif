@@ -1,0 +1,44 @@
+dn: dc=example,dc=com
+objectClass: domain
+objectClass: top
+dc: example
+
+dn: ou=Users,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: Users
+
+dn: ou=Groups,dc=example,dc=com
+objectClass: organizationalUnit
+objectClass: top
+ou: Groups
+
+dn: cn=Charles Dickens,ou=Users,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Charles Dickens
+sn: Dickens
+description: 19741108000000Z
+employeeNumber: 7
+givenName: Charles
+telephoneNumber: 254-323-1920
+telephoneNumber: 902-451-7619
+uid: cdickens
+userPassword:: c2VjcmV0
+
+dn: cn=Jane Austen,ou=Users,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+cn: Jane Austen
+sn: Austen
+description: 19650324000000Z
+employeeNumber: 3
+givenName: Jane
+telephoneNumber: 169-637-3314
+telephoneNumber: 907-547-9114
+uid: jausten
+userPassword:: c2VjcmV0
