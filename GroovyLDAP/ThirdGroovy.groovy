@@ -7,7 +7,6 @@ import org.apache.directory.api.ldap.model.message.*
 import org.apache.directory.ldap.client.api.ModifyDnRequest.*
 
 
-
 class ThirdGroovy {
 	static void main(def args) throws Exception {
 		//connection
@@ -34,13 +33,32 @@ class ThirdGroovy {
 		def replaceSn = new DefaultModification(ModificationOperation.REPLACE_ATTRIBUTE, "sn", "Wild")
 		connection.modify("cn=Oskar Wild,ou=Users,dc=example,dc=com", replaceSn)
 		
-		//2.3.2 Rename and Move 
+		
+		//2.3.2 SimpleRename and Move 
+		
+		// move
+		def entryMoveDN = new Dn("cn=Oskar Wild,cn=Mark Twain,ou=Users,dc=example,dc=com")
+		def newMoveEntryDn = new Dn("ou=Users,dc=example,dc=com")
+		def moveResponse = connection.move(entryMoveDN, newMoveEntryDn)
+
+		//rename
+		def entryRenameDN = new Dn("cn=Oskar Wilder,ou=Users,dc=example,dc=com")
+		def newEntryRenameDN = new Dn("cn=Oskar Wild,ou=Users,dc=example,dc=com")
+		def renameResponse = connection.rename(entryRenameDN, newEntryRenameDN.getRdn())
+		
+		// move and rename
+		def oldDN = new Dn("cn=Samuel Langhorne Clemens,cn=Mark Twain,ou=Users,dc=example,dc=com")
+		def newDN = new Dn("cn=Samuel Clemens,ou=Users,dc=example,dc=com")
+		def renMovResponse = connection.moveAndRename(oldDN, newDN)
+		
+		//2.3.3. Advanced Move and Rename with ModifyDn		
 		//Rename with ModifyDnRequest
 		def entryDn = new Dn("cn=Oskar Wild,ou=Users,dc=example,dc=com")
-
+		def newDn = new Dn("cn=Oskar Wilder,ou=Users,dc=example,dc=com")
+		
 	    def modDnRequest = new ModifyDnRequestImpl()
 	    modDnRequest.setName(entryDn)
-		modDnRequest.setNewRdn("cn=Oskar Wilder")
+		modDnRequest.setNewRdn(newDn.getRdn())
 		modDnRequest.setDeleteOldRdn(true)
 		
 		def modifyDnResponse = connection.modifyDn(modDnRequest)
@@ -50,8 +68,8 @@ class ThirdGroovy {
 		}
 		
 		// Move with ModifyDnRequest
-		def entryDN = new Dn("cn=Samuel Langhorne Clemens,cn=Mark Twain,ou=Users,dc=example,dc=com")
-		def newEntryDn = new Dn("ou=Users,dc=example,dc=com")
+		def entryDN = new Dn("cn=Samuel Clemens,ou=Users,dc=example,dc=com")
+		def newEntryDn = new Dn("cn=Mark Twain,ou=Users,dc=example,dc=com")
 		def movDnRequest = new ModifyDnRequestImpl()
 		movDnRequest.setName(entryDN)
 		movDnRequest.setNewSuperior(newEntryDn)
@@ -62,8 +80,8 @@ class ThirdGroovy {
 		}
 		
 		// Move and Rename at the same time with ModifyDnRequest
-		def oldEntryDN = new Dn("cn=Oskar Wilder,ou=Users,dc=example,dc=com")
-		def newEntryDN = new Dn("cn=Oskar Wild,cn=Mark Twain,ou=Users,dc=example,dc=com")
+		def oldEntryDN = new Dn("cn=Oskar Wilder,cn=Mark Twain,ou=Users,dc=example,dc=com")
+		def newEntryDN = new Dn("cn=Oskar Wild,ou=Users,dc=example,dc=com")
 		
 		def movAndRenameDnRequest = new ModifyDnRequestImpl()
 		movAndRenameDnRequest.setName(oldEntryDN)
@@ -74,8 +92,8 @@ class ThirdGroovy {
 		def moveAndRenameDnResponse = connection.modifyDn(movAndRenameDnRequest)
 		
 		if (ResultCodeEnum.SUCCESS == moveAndRenameDnResponse.getLdapResult().getResultCode()){
-			println "Oskar went to Mark and changed back to Wild"
+			println "Oskar went up and changed back to Wild"
 		}
-		
+				
 	}
 }
