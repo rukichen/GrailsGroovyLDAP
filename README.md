@@ -4,4 +4,4 @@ This site is made for people, who are working with GGTS (Grails and Groovy Tool 
 
 1. [Installing GGTS](Installing-GGTS)
 2. [Working with LDAP and groovy](Groovy-LDAP-Tutorial)
-3. Helpfull hints
+3. [Helpfull Things](3-Helpfull-Things)
